@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Bahasa - Patung Yang Menangis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="lang-page">
+    <header>
+        <nav class="navbar">
+            <div class="logo">📖 Patung Yang Menangis</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Utama</a></li>
+                <li><a href="sinopsis.html">Sinopsis</a></li>
+                <li><a href="tentang-ar.html">Tentang AR</a></li>
+                <li><a href="hubungi-kami.html" class="btn-contact">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+	
+    <main class="container lang-container">
+        <section class="ar-selection-section">
+            <h2 class="section-title">Sila Pilih Bahasa Anda</h2>
+            <p class="description" style="text-align: center; color: black;">
+                Pilih bahasa untuk memulakan pengalaman Augmented Reality (AR).
+            </p>
+
+            <div class="lang-grid">
+				<div class="lang-card-link" onclick="startAR('ms')">
+					<div class="lang-card">
+						<div class="lang-icon">
+							<img src="https://flagcdn.com/w160/my.png" alt="Malaysia Flag" class="flag-img">
+						</div>
+						<h3>Bahasa Melayu</h3>
+						<p>Klik untuk buka AR</p>
+					</div>
+				</div>
+
+				<div class="lang-card-link" onclick="startAR('en')">
+					<div class="lang-card">
+						<div class="lang-icon">
+							<img src="https://flagcdn.com/w160/gb.png" alt="UK Flag" class="flag-img">
+						</div>
+						<h3>English</h3>
+						<p>Klik untuk buka AR</p>
+					</div>
+				</div>
+
+				<div class="lang-card-link" onclick="startAR('dus')">
+					<div class="lang-card">
+						<div class="lang-icon">
+							<img src="sabah.png" alt="Sabah Flag" class="flag-img">
+						</div>
+						<h3>Kadazan-Dusun</h3>
+						<p>Klik untuk buka AR</p>
+					</div>
+				</div>
+			</div>
+        </section>
+    </main>
+	
+	<script>
+		lucide.createIcons();
+
+		function startAR(lang) {
+			// Simpan bahasa untuk rujukan AR Engine
+			localStorage.setItem('selectedLang', lang);
+
+			let targetUrl = "";
+
+			// Menghala ke folder fizikal AR anda di XAMPP
+			if (lang === 'ms') {
+				targetUrl = "coding/Bahasa Malaysia/index.html";
+			} else if (lang === 'en') {
+				targetUrl = "coding/English/index.html";
+			} else if (lang === 'dus') {
+				targetUrl = "coding/Bahasa Kadazandusun/index.html";
+			}
+
+			console.log("Membuka AR: " + targetUrl);
+			
+			// Memastikan kamera AR dilancarkan
+			if (targetUrl !== "") {
+				window.location.href = targetUrl;
+			} else {
+				alert("Ralat: Fail AR tidak dijumpai!");
+			}
+		}
+	</script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
